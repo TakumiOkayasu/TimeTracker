@@ -1,0 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS TimeTrackerDB;
+USE `TimeTrackerDB`;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS time_logs;

@@ -1,0 +1,20 @@
+{
+	"name": "Frontend Environment",
+	"dockerComposeFile": "compose.yaml",
+	"service": "frontend",
+	"workspaceFolder": "/workspace",
+	"mounts": [
+		"source=${localWorkspaceFolder}/,target=/workspace,type=bind"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"pizzacat83.codic"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		}
+	}
+}
