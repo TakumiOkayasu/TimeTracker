@@ -10,7 +10,10 @@
 		"vscode": {
 			"extensions": [
 				"eamodio.gitlens",
-				"pizzacat83.codic"
+				"pizzacat83.codic",
+				"oven.bun-vscode",
+				"sourcegraph.cody-ai",
+				"biomejs.biome"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash"
