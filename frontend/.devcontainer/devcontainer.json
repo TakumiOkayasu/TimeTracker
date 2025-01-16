@@ -1,0 +1,24 @@
+{
+	"name": "Frontend Environment",
+	"dockerComposeFile": "compose.yaml",
+	"service": "backend",
+	"workspaceFolder": "/workspace",
+	"mounts": [
+		"source=${localWorkspaceFolder}/,target=/workspace,type=bind"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"pizzacat83.codic",
+				"DEVSENSE.composer-php-vscode",
+				"sourcegraph.cody-ai",
+				"openai.openai-chatgpt-adhoc",
+				"oven.bun-vscode"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		}
+	}
+}

@@ -1,10 +1,16 @@
-FROM bitnami/laravel:latest
+FROM php:8.3-fpm
 
 ARG USER_NAME ${USER_NAME}
 ARG USER_UID  ${USER_UID}
 ARG USER_GID  ${USER_GID}
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+ENV TZ=Asia/Tokyo \
+    LANG=ja_JP.UTF-8 \
+    LANGUAGE=ja_JP:jp \
+    LC_ALL=ja_JP.UTF-8 \
+    DEVCONTAINER=true
+
+RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     bash \
     curl \
     git \
@@ -19,12 +25,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && locale-gen ja_JP.UTF-8 \
     && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
 
-ENV TZ=Asia/Tokyo \
-    LANG=ja_JP.UTF-8 \
-    LANGUAGE=ja_JP:jp \
-    LC_ALL=ja_JP.UTF-8 \
-    DEVCONTAINER=true
-
 WORKDIR /tmp/scripts/
 
 RUN curl -o ./create_user.sh https://raw.githubusercontent.com/TakumiOkayasu/shellscript_utility/refs/heads/main/create_user.sh \
@@ -37,3 +37,13 @@ RUN curl -o ./create_user.sh https://raw.githubusercontent.com/TakumiOkayasu/she
 WORKDIR /workspace
 USER ${USER_NAME}
 SHELL ["/bin/bash", "-c"]
+
+
+
+# 作業ディレクトリの設定
+WORKDIR /var/www
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# ポート公開
+EXPOSE 8000
