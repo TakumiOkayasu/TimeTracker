@@ -21,11 +21,13 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     tzdata \
     build-essential \
     ca-certificates \
+    && curl -fsSL https://bun.sh/install | bash \ 
+    && mv /root/.bun/bin/bun /usr/local/bin/ \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen ja_JP.UTF-8 \
-    && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 \
-    && curl -fsSL https://bun.sh/install | bash
+    && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
+
 
 WORKDIR /tmp/scripts/
 
