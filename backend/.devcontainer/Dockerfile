@@ -16,6 +16,7 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     git \
     sudo \
     ssh \
+    unzip \
     locales \
     tzdata \
     build-essential \
@@ -23,7 +24,8 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen ja_JP.UTF-8 \
-    && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
+    && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 \
+    && curl -fsSL https://bun.sh/install | bash
 
 WORKDIR /tmp/scripts/
 
