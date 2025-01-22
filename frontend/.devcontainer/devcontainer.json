@@ -14,7 +14,8 @@
 				"DEVSENSE.composer-php-vscode",
 				"sourcegraph.cody-ai",
 				"openai.openai-chatgpt-adhoc",
-				"oven.bun-vscode"
+				"oven.bun-vscode",
+				"biomejs.biome"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash"

@@ -16,7 +16,8 @@
 				"junstyle.php-cs-fixer",
 				"DEVSENSE.composer-php-vscode",
 				"sourcegraph.cody-ai",
-				"openai.openai-chatgpt-adhoc"
+				"openai.openai-chatgpt-adhoc",
+				"VisualStudioExptTeam.vscodeintellicode"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash"
