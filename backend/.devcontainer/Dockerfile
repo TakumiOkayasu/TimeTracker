@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.3.19-cli
 
 ARG USER_NAME ${USER_NAME}
 ARG USER_UID  ${USER_UID}
@@ -41,13 +41,3 @@ RUN curl -o ./create_user.sh https://raw.githubusercontent.com/TakumiOkayasu/she
 WORKDIR /workspace
 USER ${USER_NAME}
 SHELL ["/bin/bash", "-c"]
-
-
-
-# 作業ディレクトリの設定
-WORKDIR /var/www
-
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# ポート公開
-EXPOSE 8000
