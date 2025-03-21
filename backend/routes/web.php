@@ -2,6 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return response()->json(['message' => 'Welcome to API'], 200);
-});
+Route::get('/', fn() => response()->json(['message' => 'Welcome to API'], 200));
